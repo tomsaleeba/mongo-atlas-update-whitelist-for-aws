@@ -1,10 +1,13 @@
 {
   "name": "mongo-atlas-update-whitelist-for-aws",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Updates the MongoDB Atlas IP whitelist with IP ranges for AWS services",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": ">= 6"
   },
   "author": "Tom Saleeba",
   "license": "MIT",
@@ -15,5 +18,15 @@
     "request": "^2.85.0",
     "request-promise": "^4.2.2",
     "simple-array-diff": "^1.1.0"
+  },
+  "bin": {
+    "mawaws": "index.js"
+  },
+  "bugs": {
+    "url": "https://github.com/tomsaleeba/mongo-atlas-update-whitelist-for-aws/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/tomsaleeba/mongo-atlas-update-whitelist-for-aws.git"
   }
 }

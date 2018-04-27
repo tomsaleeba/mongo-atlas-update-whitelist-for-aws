@@ -8,6 +8,7 @@ const commandLineUsage = require('command-line-usage')
 const LIST_GROUPS_COMMAND_NAME = 'list-groups'
 const UPDATE_WHITELIST_COMMAND_NAME = 'update-whitelist'
 const HELP_COMMAND_NAME = 'help'
+const THIS_SCRIPT_COMMAND_NAME = 'mawaws'
 const DEFAULT_ATLAS_API_URL = 'https://cloud.mongodb.com/api/atlas/v1.0'
 
 const mainCommandDefinitions = [
@@ -40,7 +41,7 @@ const usageSections = [{
              'your database.'
   }, {
     header: 'Usage',
-    content: '$ index.js <command> <options>'
+    content: `$ ${THIS_SCRIPT_COMMAND_NAME} <command> <options>`
   }, {
     header: 'Command list',
     content: [
@@ -50,7 +51,7 @@ const usageSections = [{
     ]
   }, {
     header: 'list-groups example usage',
-    content: `./index.js ${LIST_GROUPS_COMMAND_NAME} \\
+    content: `${THIS_SCRIPT_COMMAND_NAME} ${LIST_GROUPS_COMMAND_NAME} \\
              --user=user@example.com \\
              --key=4c03c17c-25d8-42fa-a762-bd9c22b5a55a`,
   }, {
@@ -58,7 +59,7 @@ const usageSections = [{
     optionList: listGroupsOptionDefinitions
   }, {
     header: 'update-whitelist example usage',
-    content: `./index.js ${UPDATE_WHITELIST_COMMAND_NAME} \\
+    content: `${THIS_SCRIPT_COMMAND_NAME} ${UPDATE_WHITELIST_COMMAND_NAME} \\
              --region=ap-southeast-2 \\
              --groupid=1ab2bf4c3b53b9822afa9364 \\
              --user=user@example.com \\
