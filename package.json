@@ -1,6 +1,6 @@
 {
   "name": "mongo-atlas-update-whitelist-for-aws",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Updates the MongoDB Atlas IP whitelist with IP ranges for AWS services",
   "main": "index.js",
   "scripts": {
