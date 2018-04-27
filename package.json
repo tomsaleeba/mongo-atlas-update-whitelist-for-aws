@@ -19,6 +19,12 @@
     "request-promise": "^4.2.2",
     "simple-array-diff": "^1.1.0"
   },
+  "keywords": [
+    "mongodb",
+    "mongo",
+    "atlas",
+    "aws"
+  ],
   "bin": {
     "mawaws": "index.js"
   },
