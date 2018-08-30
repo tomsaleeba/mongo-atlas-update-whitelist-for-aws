@@ -15,7 +15,7 @@ mawaws help
       $ mawaws list-groups \
         --user=user@example.com \
         --key=4c03c17c-25d8-42fa-a762-bd9c22b5a55a
-      # examp
+      # example output
       Listing MongoDB Atlas groups (AKA projects)
       Available groups:
         1ab2bf4c3b53b9822afa9364: Project 1
