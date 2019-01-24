@@ -8,7 +8,7 @@ npm install -g mongo-atlas-update-whitelist-for-aws
 mawaws help
 ```
 
-# Running
+# Running directly
  1. As a pre-requisite, you need to have an API key for MongoDB Atlas. Follow [these instructions](https://docs.atlas.mongodb.com/configure-api-access/) to get one.
  1. We need to get the ID of the group we want to update:
       ```console
@@ -34,6 +34,26 @@ mawaws update-whitelist \
   --service=AMAZON \
   ... # continue with other params
 ```
+
+# Running with docker
+  1. either pull the pre-built docker image with
+      ```bash
+      docker pull tomsaleeba/mongo-atlas-update-whitelist-for-aws:1.0.1
+      ```
+  1. or, build the image locally with
+      ```bash
+      # after you've cloned this repo
+      docker build -t tomsaleeba/mongo-atlas-update-whitelist-for-aws:1.0.1 .
+      ```
+  1. run the container and pass args like you would to the raw command
+      ```bash
+      docker run --rm -it tomsaleeba/mongo-atlas-update-whitelist-for-aws:1.0.1 --help
+      docker run --rm -it tomsaleeba/mongo-atlas-update-whitelist-for-aws:1.0.1 list-groups --user=some@user.example --key=123abc
+      ```
+
+# Running using cron on AWS ECS Fargate
+As the list of IP ranges is being updated semi-frequently, it makes sense to run this command on a regular schedule.
+See the instructions in [aws-deploy/README.md](./aws-deploy/README.md) for how to set this up.
 
 ## TODO
  1. make `delete` function that can remove all entries for a region
