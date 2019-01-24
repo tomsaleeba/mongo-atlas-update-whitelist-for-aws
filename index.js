@@ -36,9 +36,9 @@ const usageSections = [{
     header: 'MongoDB Atlas Whitelist updater',
     content: 'updates your MongoDB Atlas IP whitelist ' +
              'using the published IP ranges for AWS Services. This makes it ' +
-             'easy to allow a whole region so, for example, a Lambda function ' +
-             'on any EC2 instance in that region will be able to reach ' +
-             'your database.'
+             'easy to allow a whole AWS region access through the firewall. ' +
+             'So, for example, your Lambda function which can run on any EC2 ' +
+             'instance in that region will be able to reach your database.'
   }, {
     header: 'Usage',
     content: `$ ${THIS_SCRIPT_COMMAND_NAME} <command> <options>`
@@ -77,12 +77,12 @@ function doUpdateWhitelist (options) {
   let atlasApiKey = options.key
 
   const whitelistUrl = `${options.atlasapiurl}/groups/${options.groupid}/whitelist`
-  
+
   // get current whitelist
   let currentWhitelistPromise = request
     .get(whitelistUrl)
     .auth(atlasUserId, atlasApiKey, false)
-    
+
   // get AWS IP ranges
   let awsIpsPromise = awsIpRanges({
     service: options.service,
@@ -110,7 +110,7 @@ function doUpdateWhitelist (options) {
   })
   .then(ipRangeDiff => {
     // TODO deal with ipRangeDiff.removed
-  
+
     // prepare array of new entries
     const newWhitelistEntries = []
     for (let curr of ipRangeDiff.added) {
@@ -123,7 +123,7 @@ function doUpdateWhitelist (options) {
       console.log('New whitelist records to be added:')
       console.log(newWhitelistEntries)
     }
-    
+
     const itemsAddedCount = newWhitelistEntries.length
     console.log(`${itemsAddedCount} item(s) to be added`)
 
