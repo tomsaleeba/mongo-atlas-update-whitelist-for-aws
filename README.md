@@ -19,7 +19,8 @@ mawaws help
 # Running directly
  1. As a pre-requisite, you need to have an API key for MongoDB Atlas. Follow
     [these instructions](https://docs.atlas.mongodb.com/configure-api-access/)
-    to get one.
+    to get one. The API key must have *Project Owner* permission to be able to
+    update the IP allowlist.
  1. We need to get the ID of the group we want to update:
       ```bash
       mawaws list-groups \
