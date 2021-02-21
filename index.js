@@ -76,7 +76,7 @@ function doUpdateWhitelist (options) {
   let atlasUserId = options.user
   let atlasApiKey = options.key
 
-  const whitelistUrl = `${options.atlasapiurl}/groups/${options.groupid}/whitelist`
+  const whitelistUrl = `${options.atlasapiurl}/groups/${options.groupid}/accessList`
 
   // get current whitelist
   let currentWhitelistPromise = request
