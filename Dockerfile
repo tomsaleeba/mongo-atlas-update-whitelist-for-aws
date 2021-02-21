@@ -1,8 +1,8 @@
-FROM kkarczmarczyk/node-yarn:8.0-slim
+FROM node:12-alpine3.12
 LABEL author="Tom Saleeba"
 
-ADD index.js package.json yarn.lock README.md /app/
 WORKDIR /app/
-RUN yarn
+ADD index.js package.json yarn.lock README.md ./
+RUN yarn install --frozen-lockfile
 
-ENTRYPOINT [ "node", "/app/index.js" ]
+ENTRYPOINT [ "node", "." ]
